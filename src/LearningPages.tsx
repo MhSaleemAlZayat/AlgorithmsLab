@@ -86,7 +86,7 @@ export function ArrayExplorer() {
     if (operation === 'delete') { if (!Number.isInteger(index) || index < 0 || index >= items.length) setResult('Enter a valid existing index.'); else if (items.length === 1) setResult('Keep at least one item in this demo.'); else { const next = [...items]; const removed = next.splice(index, 1)[0]; setItems(next); setSelected(Math.min(index, next.length - 1)); setResult(`Removed ${removed} from index ${index}. Following items shifted; O(n).`) } }
   }
   const memory = memoryNotes[language]
-  const code = samples['Array operations'][language]
+  //const code = samples['Array operations'][language]
   const visible = useMemo(() => items.map((item, i) => ({ item, i })), [items])
   return <>
     <section className="hero"><div className="eyebrow"><span className="eyebrow-line"/> DATA STRUCTURES / 01</div><h1>Array <span>Explorer</span></h1><p className="hero-copy">Explore indexed storage, perform operations, and discover how ten languages represent arrays and array-like collections.</p><div className="hero-tags"><span>Indexed access O(1)</span><span>Insertion O(n)</span><span>Memory explained</span></div></section>
@@ -98,7 +98,7 @@ export function ArrayExplorer() {
 }
 
 export function LinearSearchLab() {
-  const [items, setItems] = useState([4, 17, 9, 23, 11, 32, 17])
+  const [items] = useState([4, 17, 9, 23, 11, 32, 17])
   const [target, setTarget] = useState('23')
   const [step, setStep] = useState(-1)
   const targetValue = Number(target)
